@@ -1,1 +1,54 @@
-<p>game-details works!</p>
+<article *ngIf="game">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>{{ game.title }}</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>{{ game.author }}</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <img
+        [src]="game.coverImagePath"
+        [alt]="game.title"
+        class="img-responsive"
+      />
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="dropdown" appDropdown>
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle"
+          style="cursor: pointer"
+        >
+          Edit Games
+        </button>
+
+        <div class="dropdown-menu">
+          <a
+            class="dropdown-item"
+            (click)="openEditGame()"
+            style="cursor: pointer"
+            >Update Game</a
+          >
+          <a
+            class="dropdown-item"
+            (click)="onRemoveGame()"
+            style="cursor: pointer"
+            >Delete Game</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

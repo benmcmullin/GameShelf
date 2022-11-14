@@ -5,19 +5,19 @@ import { Game } from '../game/game.model';
 
 @Component({
   selector: "app-notification-modal",
-  templateUrl: "./notifcation-modal.component.html",
-  styleUrls: ["./notifcation-modal.component.css"]
+  templateUrl: "./notification-modal.component.html",
+  styleUrls: ["./notification-modal.component.css"]
 })
 export class NotificationModalComponent implements OnInit {
-  bookData: Game;
+  gameData: Game;
 
   constructor(private bsService: GameshelfService) {}
 
   ngOnInit(): void {
     this.bsService.gameAddedEmitter.subscribe((recentBook: Game) => {
-      this.bookData = recentBook;
+      this.gameData = recentBook;
 
-      setTimeout(() => (this.bookData = null), 1750);
+      setTimeout(() => (this.gameData = null), 1750);
     });
   }
 }

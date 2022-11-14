@@ -29,7 +29,7 @@ export class HTTPService {
     return this.http
       .get(this.firebaseRootURL, {})
       .subscribe((res: Game[] | []) => {
-        this.gameshelfService.saveSingleGame(res);
+        this.gameshelfService.setGames(res);
       });
   }
 }

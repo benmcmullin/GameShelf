@@ -1,1 +1,2 @@
-<p>game-bookshelf-form works!</p>
+<app-game-update *ngIf="isEditMode"></app-game-update>
+<app-game-create *ngIf="!isEditMode"></app-game-create>

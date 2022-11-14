@@ -1,36 +1,27 @@
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { GameCreateComponent } from './game-bookshelf/game-bookshelf-form/game-create/game-create.component';
 import { GameBookshelfComponent } from './game-bookshelf/game-bookshelf.component';
-import { GameDetailsComponent } from './game-bookshelf/game-details/game-details.component';
-import { GameBookshelfFormComponent } from './game-bookshelf/game-bookshelf-form/game-bookshelf-form.component';
-import { GameBookshelfHomeComponent } from './game-bookshelf/game-bookshelf-home/game-bookshelf-home.component';
-import { SavedGameListComponent } from './game-bookshelf/saved-game-list/saved-game-list.component';
-import { GameBookshelfModule } from './game-bookshelf/game-bookshelf.module';
-import { LibraryComponent } from './game-library/game-library.component';
-import { ApiResultListComponent } from './game-library/api-result-list/api-result-list.component';
-import { GameSearchBarComponent } from './game-library/game-search-bar/game-search-bar.component';
+import { GameUpdateComponent } from './game-bookshelf/game-bookshelf-form/game-update/game-update.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { NotificationModalComponent } from './shared/notification-modal/notification-modal.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GameBookshelfComponent,
-    GameDetailsComponent,
-    GameBookshelfFormComponent,
-    GameBookshelfHomeComponent,
-    SavedGameListComponent,
-    LibraryComponent,
-    ApiResultListComponent,
-    GameSearchBarComponent
+  declarations: [AppComponent, NavbarComponent, NotificationModalComponent, GameCreateComponent, GameBookshelfComponent, GameUpdateComponent],
+  imports: [AppRoutingModule, BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    GameBookshelfModule
-  ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

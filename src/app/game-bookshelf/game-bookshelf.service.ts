@@ -93,4 +93,11 @@ export class GameshelfService {
 
     this.gameListChanged.next(this.bsServiceGames.slice());
   }
+
+  setGames(games: Game[] | []) {
+    console.log('%c  games: ', 'color: red;', games);
+
+    this.bsServiceGames = games || [];
+    this.gameListChanged.next(this.bsServiceGames.slice());
+}
 }

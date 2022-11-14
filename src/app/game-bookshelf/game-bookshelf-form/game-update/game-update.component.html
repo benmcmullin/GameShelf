@@ -1,0 +1,66 @@
+<form (ngSubmit)="onUpdateGame()" [formGroup]="gameDetails">
+
+  <div class="form-group mb-3">
+    <label for="title">Title</label>
+    <input
+      class="form-control"
+      type="text"
+      name="title"
+      id="title"
+      formControlName="title"
+    />
+
+    <span
+      *ngIf="
+        !gameDetails.get('title').valid && gameDetails.get('title').touched"
+      class="help-block text-danger"
+      >Please enter a valid title.</span
+    >
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="developer">Developer</label>
+    <input
+      class="form-control"
+      type="text"
+      name="developer"
+      id="developer"
+      formControlName="developer"
+    />
+
+    <span
+      *ngIf="
+        !gameDetails.get('developer').valid && gameDetails.get('developer').touched
+      "
+      class="help-block text-danger"
+      >Please enter a valid developer.</span
+    >
+  </div>
+  <div class="form-group mb-3">
+    <label for="coverImagePath">Cover Image Path</label>
+    <input
+      class="form-control"
+      type="text"
+      name="coverImagePath"
+      id="coverImagePath"
+      formControlName="coverImagePath"
+    />
+
+    <span
+      *ngIf="
+        !gameDetails.get('coverImagePath').valid &&
+        gameDetails.get('coverImagePath').touched
+      "
+      class="help-block text-danger"
+      >Please enter a valid cover image path.</span
+    >
+  </div>
+
+  <button (click)="onReset()" class="btn btn-secondary me-2" type="button">
+    Cancel
+  </button>
+
+  <button [disabled]="!gameDetails.valid" class="btn btn-primary" type="submit">
+    Update
+  </button>
+</form>
