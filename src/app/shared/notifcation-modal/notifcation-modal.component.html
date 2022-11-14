@@ -1,1 +1,15 @@
-<p>notifcation-modal works!</p>
+<section
+  *ngIf="gameData"
+  class="notification-modal"
+  (click)="this.gameData = null"
+>
+  <div class="overlay-bg"></div>
+
+  <div class="modal-content">
+    <div class="card">
+      <p>You Successfully Added</p>
+      <h3>{{ gameData.title }}</h3>
+      <h4>By {{ gameData.developer }}</h4>
+    </div>
+  </div>
+</section>

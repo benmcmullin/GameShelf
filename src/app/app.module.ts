@@ -9,7 +9,7 @@ import { GameBookshelfFormComponent } from './game-bookshelf/game-bookshelf-form
 import { GameBookshelfHomeComponent } from './game-bookshelf/game-bookshelf-home/game-bookshelf-home.component';
 import { SavedGameListComponent } from './game-bookshelf/saved-game-list/saved-game-list.component';
 import { GameBookshelfModule } from './game-bookshelf/game-bookshelf.module';
-import { LibraryComponent } from './library/library.component';
+import { LibraryComponent } from './game-library/game-library.component';
 import { ApiResultListComponent } from './game-library/api-result-list/api-result-list.component';
 import { GameSearchBarComponent } from './game-library/game-search-bar/game-search-bar.component';
 
