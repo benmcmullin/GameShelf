@@ -1,1 +1,11 @@
-<p>game works!</p>
+<a class="game" routerLink="{{gameDetails.genre}}" style="cursor: pointer">
+
+  <div class="game-image">
+    <img src="{{gameDetails.coverImagePath}}" alt="{{gameDetails.title}} game cover" class="img-responsive"/>
+  </div>
+
+  <div class="game-info">
+    <h3>{{gameDetails.title}}</h3>
+    <h4>{{gameDetails.developer}}</h4>
+  </div>
+</a>
