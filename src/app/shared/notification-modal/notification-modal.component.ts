@@ -11,10 +11,10 @@ import { Game } from '../game/game.model';
 export class NotificationModalComponent implements OnInit {
   gameData: Game;
 
-  constructor(private bsService: GameshelfService) {}
+  constructor(private gsService: GameshelfService) {}
 
   ngOnInit(): void {
-    this.bsService.gameAddedEmitter.subscribe((recentBook: Game) => {
+    this.gsService.gameAddedEmitter.subscribe((recentBook: Game) => {
       this.gameData = recentBook;
 
       setTimeout(() => (this.gameData = null), 1750);
